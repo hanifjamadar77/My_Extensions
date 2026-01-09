@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AI Chat Navigator",
+  "version": "1.0",
+  "description": "Sidebar to navigate your questions in AI chats",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+  "default_popup": "popup.html"
+},
+  "host_permissions": [
+    "*://chatgpt.com/*",
+    "*://*.chatgpt.com/*",
+    "*://gemini.google.com/*",
+    "*://claude.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chatgpt.com/*",
+        "*://*.chatgpt.com/*",
+        "*://gemini.google.com/*",
+        "*://claude.ai/*"
+      ],
+      "js": ["content_script.js"],
+      "css": ["sidebar.css"],
+      "run_at": "document_idle"
+    }
+  ]
+  
+}
